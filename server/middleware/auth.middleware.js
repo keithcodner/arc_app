@@ -1,5 +1,5 @@
 const HttpException = require('../utils/HttpException.utils');
-const UserModel = require('../models/user.model');
+const UserModel = require('../models/arc_c_user.model');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
