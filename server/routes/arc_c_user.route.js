@@ -8,7 +8,7 @@ const awaitHandlerFactory = require('../middleware/awaitHandlerFactory.middlewar
 const { createUserSchema, updateUserSchema, validateLogin } = require('../middleware/validators/arcValidator.middleware');
 
 
-router.get('/', auth(), awaitHandlerFactory(ARC_C_Controller.getAllUsers)); // localhost:3000/api/v1/users
+router.get('/', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.getAllUsers)); // localhost:3000/api/v1/users
 
 
 module.exports = router;
