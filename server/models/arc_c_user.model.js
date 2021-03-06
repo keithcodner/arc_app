@@ -18,6 +18,7 @@ class ARC_C_UserModel {
         return await query(sql, [...values]);
     }
 
+    /*
     findOne = async (params) => {
         const { columnSet, values } = multipleColumnSet(params)
 
@@ -58,6 +59,7 @@ class ARC_C_UserModel {
 
         return affectedRows;
     }
+    */
 }
 
 module.exports = new ARC_C_UserModel;

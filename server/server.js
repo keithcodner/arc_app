@@ -1,5 +1,9 @@
 const express = require('express');
+
+//Routes
 const apiRouter = require('./routes');
+const arc_c_users_apiRouter = require('./routes/arc_c_user.route');
+
 const dotenv = require('dotenv');
 const cors = require("cors");
 const HttpException = require('./utils/HttpException.utils');
@@ -24,6 +28,7 @@ app.options("*", cors());
 
 app.use(express.json());
 app.use('/api/arc_db', apiRouter);
+app.use('/api/arc_db/arc_c_users', arc_c_users_apiRouter);
 
 // 404 error
 app.all('*', (req, res, next) => {

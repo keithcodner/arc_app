@@ -1,4 +1,4 @@
-const UserModel = require('../models/arc_c_user.model');
+const ARC_C_UserModel = require('../models/arc_c_user.model');
 const HttpException = require('../utils/HttpException.utils');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
@@ -11,19 +11,19 @@ dotenv.config();
  ******************************************************************************/
  class ARC_C_Controller {
     getAllUsers = async (req, res, next) => {
-        let userList = await UserModel.find();
-        if (!userList.length) {
+        let arc_c_users = await ARC_C_UserModel.find();
+        if (!arc_c_users.length) {
             throw new HttpException(404, 'Users not found');
         }
 
-        userList = userList.map(user => {
+        arc_c_users = arc_c_users.map(user => {
             const { password, ...userWithoutPassword } = user;
             return userWithoutPassword;
         });
 
-        res.send(userList);
+        res.send(arc_c_users);
     };
-
+/*
     getUserById = async (req, res, next) => {
         const user = await UserModel.findOne({ id: req.params.id });
         if (!user) {
@@ -138,6 +138,7 @@ dotenv.config();
             req.body.password = await bcrypt.hash(req.body.password, 8);
         }
     }
+    */
 }
 
 
