@@ -18,10 +18,10 @@ function errorMiddleware(error, req, res, next) {
 
 module.exports = errorMiddleware;
 /*
-{
-    type: 'error',
-    status: 404,
-    message: 'Not Found'
-    data: {...} // optional
-}
+    {
+        type: 'error',
+        status: 404,
+        message: 'Not Found'
+        data: {...} // optional
+    }
 */
