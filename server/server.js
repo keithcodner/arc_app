@@ -4,6 +4,8 @@ const express = require('express');
 const apiRouter = require('./routes');
 const arc_c_users_apiRouter = require('./routes/arc_c_user.route');
 const arc_r_users_apiRouter = require('./routes/arc_r_user.route');
+const arc_cmd_apiRouter = require('./routes/arc_cmd.route');
+const arc_cmd_lst_apiRouter = require('./routes/arc_cmd_list.route');
 
 const dotenv = require('dotenv');
 const cors = require("cors");
@@ -30,6 +32,8 @@ app.options("*", cors());
 app.use(express.json());
 app.use('/api/arc_db/arc_c_users', arc_c_users_apiRouter);// for arc_c_users
 app.use('/api/arc_db/arc_r_users', arc_r_users_apiRouter);// for arc_r_users
+app.use('/api/arc_db/arc_cmd_table', arc_cmd_apiRouter);// for arc_cmd_table
+app.use('/api/arc_db/arc_cmd_lst_table', arc_cmd_lst_apiRouter);// for arc_cmd_lst_table
 app.use('/api/arc_db', apiRouter); // Default
 
 

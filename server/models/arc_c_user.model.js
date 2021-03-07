@@ -2,7 +2,7 @@ const query = require('../db/db-connection');
 const { multipleColumnSet } = require('../utils/common.utils');
 const Role = require('../utils/userRoles.utils');
 
-class ARC_C_UserModel {
+class ARC_CMDModel {
     tableName = 'arc_c_usr_table';
 
     find = async (params = {}) => {
@@ -62,4 +62,4 @@ class ARC_C_UserModel {
     */
 }
 
-module.exports = new ARC_C_UserModel;
+module.exports = new ARC_CMDModel;
