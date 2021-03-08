@@ -18,7 +18,7 @@ class ARC_CMDModel {
         return await query(sql, [...values]);
     }
 
-    /*
+    
     findOne = async (params) => {
         const { columnSet, values } = multipleColumnSet(params)
 
@@ -31,16 +31,16 @@ class ARC_CMDModel {
         return result[0];
     }
 
-    create = async ({ username, password, first_name, last_name, email, role = Role.SuperUser, age = 0 }) => {
+    create = async ({ c_usr_an_id, r_usr_an_id, c_usr_name, c_usr_pwd, c_usr_pwd_hash, c_usr_email, c_usr_ip, c_usr_status, c_usr_op1, c_usr_op2, c_usr_type, c_usr_date_created}) => {
         const sql = `INSERT INTO ${this.tableName}
-        (username, password, first_name, last_name, email, role, age) VALUES (?,?,?,?,?,?,?)`;
+        (c_usr_an_id, r_usr_an_id, c_usr_name, c_usr_pwd, c_usr_pwd_hash, c_usr_email, c_usr_ip, c_usr_status, c_usr_op1, c_usr_op2, c_usr_type, c_usr_date_created) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`;
 
-        const result = await query(sql, [username, password, first_name, last_name, email, role, age]);
+        const result = await query(sql, [c_usr_an_id, r_usr_an_id, c_usr_name, c_usr_pwd, c_usr_pwd_hash, c_usr_email, c_usr_ip, c_usr_status, c_usr_op1, c_usr_op2, c_usr_type, c_usr_date_created]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;
     }
-
+/*
     update = async (params, id) => {
         const { columnSet, values } = multipleColumnSet(params)
 

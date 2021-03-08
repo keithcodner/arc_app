@@ -10,46 +10,35 @@ dotenv.config();
  *                              User Controller
  ******************************************************************************/
  class ARC_C_Controller {
-    getAllUsers = async (req, res, next) => {
+    getAllCUsers = async (req, res, next) => {
         let arc_c_users = await ARC_C_UserModel.find();
         if (!arc_c_users.length) {
             throw new HttpException(404, 'Users not found');
         }
 
-        arc_c_users = arc_c_users.map(user => {
-            const { password, ...userWithoutPassword } = user;
-            return userWithoutPassword;
-        });
-
         res.send(arc_c_users);
     };
-/*
-    getUserById = async (req, res, next) => {
-        const user = await UserModel.findOne({ id: req.params.id });
-        if (!user) {
+
+    getCUserById = async (req, res, next) => {
+        const c_usr_name = await ARC_C_UserModel.findOne({ c_usr_id: req.params.c_usr_id });
+        if (!c_usr_name) {
             throw new HttpException(404, 'User not found');
         }
 
-        const { password, ...userWithoutPassword } = user;
+        const { r_usr_an_id, ...userNotFound } = c_usr_name;
 
-        res.send(userWithoutPassword);
+        res.send(userNotFound);
     };
 
-    getUserByuserName = async (req, res, next) => {
-        const user = await UserModel.findOne({ username: req.params.username });
-        if (!user) {
+    getCUserByANId = async (req, res, next) => {
+        const c_usr_name = await ARC_C_UserModel.findOne({ c_usr_an_id: req.params.c_usr_an_id });
+        if (!c_usr_name) {
             throw new HttpException(404, 'User not found');
         }
 
-        const { password, ...userWithoutPassword } = user;
+        const { r_usr_an_id, ...userNotFound } = c_usr_name;
 
-        res.send(userWithoutPassword);
-    };
-
-    getCurrentUser = async (req, res, next) => {
-        const { password, ...userWithoutPassword } = req.currentUser;
-
-        res.send(userWithoutPassword);
+        res.send(userNotFound);
     };
 
     createUser = async (req, res, next) => {
@@ -95,6 +84,24 @@ dotenv.config();
             throw new HttpException(404, 'User not found');
         }
         res.send('User has been deleted');
+    };
+
+/*
+    getUserByuserName = async (req, res, next) => {
+        const user = await UserModel.findOne({ username: req.params.username });
+        if (!user) {
+            throw new HttpException(404, 'User not found');
+        }
+
+        const { password, ...userWithoutPassword } = user;
+
+        res.send(userWithoutPassword);
+    };
+
+    getCurrentUser = async (req, res, next) => {
+        const { password, ...userWithoutPassword } = req.currentUser;
+
+        res.send(userWithoutPassword);
     };
 
     userLogin = async (req, res, next) => {
