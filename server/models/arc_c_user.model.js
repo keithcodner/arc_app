@@ -40,7 +40,7 @@ class ARC_CMDModel {
 
         return affectedRows;
     }
-/*
+
     update = async (params, id) => {
         const { columnSet, values } = multipleColumnSet(params)
 
@@ -50,7 +50,8 @@ class ARC_CMDModel {
 
         return result;
     }
-
+    
+/*
     delete = async (id) => {
         const sql = `DELETE FROM ${this.tableName}
         WHERE id = ?`;

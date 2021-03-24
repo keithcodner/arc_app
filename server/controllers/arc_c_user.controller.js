@@ -42,11 +42,8 @@ dotenv.config();
     };
 
     createUser = async (req, res, next) => {
-        this.checkValidation(req);
-
-        await this.hashPassword(req);
-
-        const result = await UserModel.create(req.body);
+        
+        const result = await ARC_C_UserModel.create(req.body);
 
         if (!result) {
             throw new HttpException(500, 'Something went wrong');
