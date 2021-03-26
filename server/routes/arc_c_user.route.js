@@ -7,11 +7,23 @@ const awaitHandlerFactory = require('../middleware/awaitHandlerFactory.middlewar
 
 const { createUserSchema, updateUserSchema, validateLogin } = require('../middleware/validators/arcValidator.middleware');
 
+//localhost:3000/api/arc_db/arc_c_users
+router.get('/', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.getAllCUsers)); 
 
-router.get('/', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.getAllCUsers)); //localhost:3000/api/arc_db/arc_c_users
-router.get('/c_usr_id/:c_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.getCUserById)); //localhost:3000/api/arc_db/arc_c_users/c_usr_id/1
-router.get('/c_usr_an_id/:c_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.getCUserByANId)); //localhost:3000/api/arc_db/arc_c_users/c_usr_an_id/QWERT123
-router.post('/c_usrs/', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.createUser)); //http://localhost:3000/api/arc_db/arc_c_users/c_usrs
+//localhost:3000/api/arc_db/arc_c_users/c_usr_id/1
+router.get('/c_usr_id/:c_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.getCUserById)); 
+
+//localhost:3000/api/arc_db/arc_c_users/c_usr_an_id/QWERT123
+router.get('/c_usr_an_id/:c_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.getCUserByANId)); 
+
+//http://localhost:3000/api/arc_db/arc_c_users/c_usrs
+router.post('/c_usrs/', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.createUser)); 
+
+//localhost:3000/api/arc_db/arc_c_users/c_usr_id/3
+router.patch('/c_usr_id/:c_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.updateUser)); 
+
+//localhost:3000/api/arc_db/arc_c_users/c_usr_id/3
+router.delete('/c_usr_id/:c_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.deleteUser)); 
 
 /*
 http://localhost:3000/api/arc_db/arc_r_users

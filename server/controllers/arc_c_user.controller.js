@@ -42,26 +42,23 @@ dotenv.config();
     };
 
     createUser = async (req, res, next) => {
-        
+
         const result = await ARC_C_UserModel.create(req.body);
 
         if (!result) {
-            throw new HttpException(500, 'Something went wrong');
+            throw new HttpException(501, 'Something went wrong');
         }
 
         res.status(201).send('User was created!');
     };
 
     updateUser = async (req, res, next) => {
-        this.checkValidation(req);
-
-        await this.hashPassword(req);
-
+        
         const { confirm_password, ...restOfUpdates } = req.body;
 
         // do the update query and get the result
         // it can be partial edit
-        const result = await UserModel.update(restOfUpdates, req.params.id);
+        const result = await ARC_C_UserModel.update(restOfUpdates, req.params.c_usr_id);
 
         if (!result) {
             throw new HttpException(404, 'Something went wrong');
@@ -76,7 +73,7 @@ dotenv.config();
     };
 
     deleteUser = async (req, res, next) => {
-        const result = await UserModel.delete(req.params.id);
+        const result = await ARC_C_UserModel.delete(req.params.c_usr_id);
         if (!result) {
             throw new HttpException(404, 'User not found');
         }

@@ -41,26 +41,26 @@ class ARC_CMDModel {
         return affectedRows;
     }
 
-    update = async (params, id) => {
+    update = async (params, c_usr_id) => {
         const { columnSet, values } = multipleColumnSet(params)
 
-        const sql = `UPDATE user SET ${columnSet} WHERE id = ?`;
+        const sql = `UPDATE ${this.tableName} SET ${columnSet} WHERE c_usr_id = ?`;
 
-        const result = await query(sql, [...values, id]);
+        const result = await query(sql, [...values, c_usr_id]);
 
         return result;
     }
-    
-/*
-    delete = async (id) => {
+
+
+    delete = async (c_usr_id) => {
         const sql = `DELETE FROM ${this.tableName}
-        WHERE id = ?`;
-        const result = await query(sql, [id]);
+        WHERE c_usr_id = ?`;
+        const result = await query(sql, [c_usr_id]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;
     }
-    */
+    /**/
 }
 
 module.exports = new ARC_CMDModel;
