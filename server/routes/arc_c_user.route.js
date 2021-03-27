@@ -26,13 +26,27 @@ router.patch('/c_usr_id/:c_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Contro
 router.delete('/c_usr_id/:c_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.deleteUser)); 
 
 /*
-http://localhost:3000/api/arc_db/arc_r_users
-http://localhost:3000/api/arc_db
-http://localhost:3000/api/arc_db/arc_cmd_table
-http://localhost:3000/api/arc_db/arc_cmd_lst_table
-http://localhost:3000/api/arc_db/arc_c_users/c_usr_an_id/QWERT124
-http://localhost:3000/api/arc_db/c_usr_an_id/c_usr_id/QWERT123
-
+// http://localhost:3000/api/arc_db/arc_c_users (get all)
+// http://localhost:3000/api/arc_db/arc_c_users/c_usr_id/1  (get by table id)
+// http://localhost:3000/api/arc_db/arc_c_users/c_usr_an_id/QWERT123  (get by table an id)
+// http://localhost:3000/api/arc_db/arc_c_users/c_usrs (post)
+// http://localhost:3000/api/arc_db/arc_c_users/c_usr_id/3  (patch)
+// http://localhost:3000/api/arc_db/arc_c_users/c_usr_id/3  (delete)
+// sample data
+    {
+        "c_usr_id": 1,
+        "c_usr_an_id": "QWERT123",
+        "c_usr_name": "Keith",
+        "c_usr_pwd": "p12345",
+        "c_usr_pwd_hash": "1q2w3e",
+        "c_usr_email": "codnerk@gmail.com",
+        "c_usr_ip": "1.1.1.1",
+        "c_usr_status": "Active",
+        "c_usr_op1": "0",
+        "c_usr_op2": "0",
+        "c_usr_type": "Admin",
+        "c_usr_date_created": "2021-03-05T05:55:57.000Z"
+    }
 */
 
 

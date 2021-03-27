@@ -2,7 +2,7 @@ const query = require('../db/db-connection');
 const { multipleColumnSet } = require('../utils/common.utils');
 const Role = require('../utils/userRoles.utils');
 
-class ARC_R_UserModel {
+class ARC_R_Model {
     tableName = 'arc_r_usr_table';
 
     find = async (params = {}) => {
@@ -18,7 +18,7 @@ class ARC_R_UserModel {
         return await query(sql, [...values]);
     }
 
-    /*
+    
     findOne = async (params) => {
         const { columnSet, values } = multipleColumnSet(params)
 
@@ -31,35 +31,36 @@ class ARC_R_UserModel {
         return result[0];
     }
 
-    create = async ({ username, password, first_name, last_name, email, role = Role.SuperUser, age = 0 }) => {
+    create = async ({ r_usr_an_id,r_usr_code_name,r_usr_ip,r_usr_status,r_usr_type,r_usr_op1,r_usr_op2,r_usr_date_created}) => {
         const sql = `INSERT INTO ${this.tableName}
-        (username, password, first_name, last_name, email, role, age) VALUES (?,?,?,?,?,?,?)`;
+        (r_usr_an_id,r_usr_code_name,r_usr_ip,r_usr_status,r_usr_type,r_usr_op1,r_usr_op2,r_usr_date_created) VALUES (?,?,?,?,?,?,?,?)`;
 
-        const result = await query(sql, [username, password, first_name, last_name, email, role, age]);
+        const result = await query(sql, [r_usr_an_id,r_usr_code_name,r_usr_ip,r_usr_status,r_usr_type,r_usr_op1,r_usr_op2,r_usr_date_created]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;
     }
 
-    update = async (params, id) => {
+    update = async (params, r_usr_id) => {
         const { columnSet, values } = multipleColumnSet(params)
 
-        const sql = `UPDATE user SET ${columnSet} WHERE id = ?`;
+        const sql = `UPDATE ${this.tableName} SET ${columnSet} WHERE r_usr_id = ?`;
 
-        const result = await query(sql, [...values, id]);
+        const result = await query(sql, [...values, r_usr_id]);
 
         return result;
     }
 
-    delete = async (id) => {
+
+    delete = async (r_usr_id) => {
         const sql = `DELETE FROM ${this.tableName}
-        WHERE id = ?`;
-        const result = await query(sql, [id]);
+        WHERE r_usr_id = ?`;
+        const result = await query(sql, [r_usr_id]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;
     }
-    */
+    /**/
 }
 
-module.exports = new ARC_R_UserModel;
+module.exports = new ARC_R_Model;
