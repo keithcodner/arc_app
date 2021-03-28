@@ -17,13 +17,13 @@ router.get('/c_usr_id/:c_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controll
 router.get('/c_usr_an_id/:c_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.getCUserByANId)); 
 
 //http://localhost:3000/api/arc_db/arc_c_users/c_usrs
-router.post('/c_usrs/', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.createUser)); 
+router.post('/c_usrs/', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.createCUser)); 
 
 //localhost:3000/api/arc_db/arc_c_users/c_usr_id/3
-router.patch('/c_usr_id/:c_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.updateUser)); 
+router.patch('/c_usr_id/:c_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.updateCUser)); 
 
 //localhost:3000/api/arc_db/arc_c_users/c_usr_id/3
-router.delete('/c_usr_id/:c_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.deleteUser)); 
+router.delete('/c_usr_id/:c_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_C_Controller.deleteCUser)); 
 
 /*
 // http://localhost:3000/api/arc_db/arc_c_users (get all)

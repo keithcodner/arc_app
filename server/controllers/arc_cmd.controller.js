@@ -10,31 +10,77 @@ dotenv.config();
  *                              User Controller
  ******************************************************************************/
 class ARC_CMDController {
-    getAllUsers = async (req, res, next) => {
-        let arc_cmd = await ARC_CMDModel.find();
-        if (!arc_cmd.length) {
+    getAll_CMD_Users = async (req, res, next) => {
+        let ARC_CMD_users = await ARC_CMD_Model.find();
+        if (!ARC_CMD_users.length) {
             throw new HttpException(404, 'Users not found');
         }
 
-        arc_cmd = arc_cmd.map(user => {
-            const { password, ...userWithoutPassword } = user;
-            return userWithoutPassword;
-        });
-
-        res.send(arc_cmd);
+        res.send(ARC_CMD_users);
     };
-/*
-    getUserById = async (req, res, next) => {
-        const user = await UserModel.findOne({ id: req.params.id });
-        if (!user) {
+
+    get_CMD_UserById = async (req, res, next) => {
+        const cmD_usr_name = await ARC_CMD_Model.findOne({ cmd_id: req.params.cmd_id });
+        if (!cmD_usr_name) {
             throw new HttpException(404, 'User not found');
         }
 
-        const { password, ...userWithoutPassword } = user;
+        const { r_usr_an_id, ...userNotFound } = cmD_usr_name;
 
-        res.send(userWithoutPassword);
+        res.send(userNotFound);
     };
 
+    get_CMD_UserByANId = async (req, res, next) => {
+        const cmD_usr_name = await ARC_CMD_Model.findOne({ cmd_lst_an_id: req.params.cmd_lst_an_id });
+        if (!cmD_usr_name) {
+            throw new HttpException(404, 'User not found');
+        }
+
+        const { r_usr_an_id, ...userNotFound } = cmD_usr_name;
+
+        res.send(userNotFound);
+    };
+
+    create_CMD_User = async (req, res, next) => {
+
+        const result = await ARC_CMD_Model.create(req.body);
+
+        if (!result) {
+            throw new HttpException(501, 'Something went wrong');
+        }
+
+        res.status(201).send('User was created!');
+    };
+
+    update_CMD_User = async (req, res, next) => {
+        
+        const { confirm_password, ...restOfUpdates } = req.body;
+
+        // do the update query and get the result
+        // it can be partial edit
+        const result = await ARC_CMD_Model.update(restOfUpdates, req.params.cmd_id);
+
+        if (!result) {
+            throw new HttpException(404, 'Something went wrong');
+        }
+
+        const { affectedRows, changedRows, info } = result;
+
+        const message = !affectedRows ? 'User not found' :
+            affectedRows && changedRows ? 'User updated successfully' : 'Updated faild';
+
+        res.send({ message, info });
+    };
+
+    delete_CMD_User = async (req, res, next) => {
+        const result = await ARC_CMD_Model.delete(req.params.cmd_id);
+        if (!result) {
+            throw new HttpException(404, 'User not found');
+        }
+        res.send('User has been deleted');
+    };
+
+/*
     getUserByuserName = async (req, res, next) => {
         const user = await UserModel.findOne({ username: req.params.username });
         if (!user) {
@@ -50,51 +96,6 @@ class ARC_CMDController {
         const { password, ...userWithoutPassword } = req.currentUser;
 
         res.send(userWithoutPassword);
-    };
-
-    createUser = async (req, res, next) => {
-        this.checkValidation(req);
-
-        await this.hashPassword(req);
-
-        const result = await UserModel.create(req.body);
-
-        if (!result) {
-            throw new HttpException(500, 'Something went wrong');
-        }
-
-        res.status(201).send('User was created!');
-    };
-
-    updateUser = async (req, res, next) => {
-        this.checkValidation(req);
-
-        await this.hashPassword(req);
-
-        const { confirm_password, ...restOfUpdates } = req.body;
-
-        // do the update query and get the result
-        // it can be partial edit
-        const result = await UserModel.update(restOfUpdates, req.params.id);
-
-        if (!result) {
-            throw new HttpException(404, 'Something went wrong');
-        }
-
-        const { affectedRows, changedRows, info } = result;
-
-        const message = !affectedRows ? 'User not found' :
-            affectedRows && changedRows ? 'User updated successfully' : 'Updated faild';
-
-        res.send({ message, info });
-    };
-
-    deleteUser = async (req, res, next) => {
-        const result = await UserModel.delete(req.params.id);
-        if (!result) {
-            throw new HttpException(404, 'User not found');
-        }
-        res.send('User has been deleted');
     };
 
     userLogin = async (req, res, next) => {

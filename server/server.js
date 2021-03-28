@@ -34,7 +34,7 @@ app.use(express.json());
 app.use('/api/arc_db/arc_c_users', arc_c_users_apiRouter);// for arc_c_users
 app.use('/api/arc_db/arc_r_users', arc_r_users_apiRouter);// for arc_r_users
 app.use('/api/arc_db/arc_cmd_table', arc_cmd_apiRouter);// for arc_cmd_table
-app.use('/api/arc_db/arc_cmd_lst_table', arc_cmd_lst_apiRouter);// for arc_cmd_lst_table
+app.use('/api/arc_db/arc_cmd_list_table', arc_cmd_lst_apiRouter);// for arc_cmd_lst_table
 app.use('/api/arc_db/c_users', arc_c_users_apiRouter); // Default create
 
 

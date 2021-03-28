@@ -18,7 +18,7 @@ class ARC_CMD_LIST_Model {
         return await query(sql, [...values]);
     }
 
-    /*
+    
     findOne = async (params) => {
         const { columnSet, values } = multipleColumnSet(params)
 
@@ -31,35 +31,36 @@ class ARC_CMD_LIST_Model {
         return result[0];
     }
 
-    create = async ({ username, password, first_name, last_name, email, role = Role.SuperUser, age = 0 }) => {
+    create = async ({ cmd_lst_an_id,cmd_exec_name,cmd_lst_exec_description,cmd_lst_status,cmd_lst_type,cmd_lst_date_created}) => {
         const sql = `INSERT INTO ${this.tableName}
-        (username, password, first_name, last_name, email, role, age) VALUES (?,?,?,?,?,?,?)`;
+        (cmd_lst_an_id,cmd_exec_name,cmd_lst_exec_description,cmd_lst_status,cmd_lst_type,cmd_lst_date_created) VALUES (?,?,?,?,?,?)`;
 
-        const result = await query(sql, [username, password, first_name, last_name, email, role, age]);
+        const result = await query(sql, [cmd_lst_an_id,cmd_exec_name,cmd_lst_exec_description,cmd_lst_status,cmd_lst_type,cmd_lst_date_created]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;
     }
 
-    update = async (params, id) => {
+    update = async (params, cmd_lst_id) => {
         const { columnSet, values } = multipleColumnSet(params)
 
-        const sql = `UPDATE user SET ${columnSet} WHERE id = ?`;
+        const sql = `UPDATE ${this.tableName} SET ${columnSet} WHERE cmd_lst_id = ?`;
 
-        const result = await query(sql, [...values, id]);
+        const result = await query(sql, [...values, cmd_lst_id]);
 
         return result;
     }
 
-    delete = async (id) => {
+
+    delete = async (cmd_lst_id) => {
         const sql = `DELETE FROM ${this.tableName}
-        WHERE id = ?`;
-        const result = await query(sql, [id]);
+        WHERE cmd_lst_id = ?`;
+        const result = await query(sql, [cmd_lst_id]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;
     }
-    */
+    /**/
 }
 
 module.exports = new ARC_CMD_LIST_Model;

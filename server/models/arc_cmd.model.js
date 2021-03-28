@@ -18,7 +18,7 @@ class ARC_CMDModel {
         return await query(sql, [...values]);
     }
 
-    /*
+    
     findOne = async (params) => {
         const { columnSet, values } = multipleColumnSet(params)
 
@@ -31,35 +31,36 @@ class ARC_CMDModel {
         return result[0];
     }
 
-    create = async ({ username, password, first_name, last_name, email, role = Role.SuperUser, age = 0 }) => {
+    create = async ({ cmd_an_id,r_usr_an_id,c_usr_an_id,r_usr_code_name,cmd_exec_name,cmd_exec_params,cmd_exec_data,cmd_status,cmd_op1,cmd_op2,cmd_op3,cmd_date_created,cmd_date_executed}) => {
         const sql = `INSERT INTO ${this.tableName}
-        (username, password, first_name, last_name, email, role, age) VALUES (?,?,?,?,?,?,?)`;
+        (cmd_an_id,r_usr_an_id,c_usr_an_id,r_usr_code_name,cmd_exec_name,cmd_exec_params,cmd_exec_data,cmd_status,cmd_op1,cmd_op2,cmd_op3,cmd_date_created,cmd_date_executed) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 
-        const result = await query(sql, [username, password, first_name, last_name, email, role, age]);
+        const result = await query(sql, [cmd_an_id,r_usr_an_id,c_usr_an_id,r_usr_code_name,cmd_exec_name,cmd_exec_params,cmd_exec_data,cmd_status,cmd_op1,cmd_op2,cmd_op3,cmd_date_created,cmd_date_executed]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;
     }
 
-    update = async (params, id) => {
+    update = async (params, cmd_id) => {
         const { columnSet, values } = multipleColumnSet(params)
 
-        const sql = `UPDATE user SET ${columnSet} WHERE id = ?`;
+        const sql = `UPDATE ${this.tableName} SET ${columnSet} WHERE cmd_id = ?`;
 
-        const result = await query(sql, [...values, id]);
+        const result = await query(sql, [...values, cmd_id]);
 
         return result;
     }
 
-    delete = async (id) => {
+
+    delete = async (cmd_id) => {
         const sql = `DELETE FROM ${this.tableName}
-        WHERE id = ?`;
-        const result = await query(sql, [id]);
+        WHERE cmd_id = ?`;
+        const result = await query(sql, [cmd_id]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;
     }
-    */
+    /**/
 }
 
 module.exports = new ARC_CMDModel;

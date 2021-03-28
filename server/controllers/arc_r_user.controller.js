@@ -41,7 +41,7 @@ dotenv.config();
         res.send(userNotFound);
     };
 
-    createUser = async (req, res, next) => {
+    createRUser = async (req, res, next) => {
 
         const result = await ARC_R_UserModel.create(req.body);
 
@@ -52,7 +52,7 @@ dotenv.config();
         res.status(201).send('User was created!');
     };
 
-    updateUser = async (req, res, next) => {
+    updateRUser = async (req, res, next) => {
         
         const { confirm_password, ...restOfUpdates } = req.body;
 
@@ -72,7 +72,7 @@ dotenv.config();
         res.send({ message, info });
     };
 
-    deleteUser = async (req, res, next) => {
+    deleteRUser = async (req, res, next) => {
         const result = await ARC_R_UserModel.delete(req.params.r_usr_id);
         if (!result) {
             throw new HttpException(404, 'User not found');
