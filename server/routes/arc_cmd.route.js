@@ -18,7 +18,7 @@ router.get('/cmd_id/:cmd_id', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.
 router.get('/cmd_usr_an_id/:cmD_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.get_CMD_UserByANId)); 
 
 //http://localhost:3000/api/arc_db/arc_cmd_table/c_usrs
-router.post('/cmd_usrs/', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.create_CMD_User)); 
+router.post('/mkcmd/', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.create_CMD_User)); 
 
 //localhost:3000/api/arc_db/arc_cmd_table/cmd_id/3
 router.patch('/cmd_id/:cmd_id', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.update_CMD_User)); 
@@ -30,7 +30,7 @@ router.delete('/cmd_id/:cmd_id', /*auth(),*/ awaitHandlerFactory(ARC_CMDControll
 // http://localhost:3000/api/arc_db/arc_cmd_table (get all)
 // http://localhost:3000/api/arc_db/arc_cmd_table/cmd_id/1  (get by table id)
 // http://localhost:3000/api/arc_db/arc_cmd_table/cmd_usr_an_id/QWERT123  (get by table an id)
-// http://localhost:3000/api/arc_db/arc_cmd_table/c_usrs (post)
+// http://localhost:3000/api/arc_db/arc_cmd_table/mkcmd (post)
 // http://localhost:3000/api/arc_db/arc_cmd_table/cmd_id/3  (patch)
 // http://localhost:3000/api/arc_db/arc_cmd_table/cmd_id/3  (delete)
 // sample data
