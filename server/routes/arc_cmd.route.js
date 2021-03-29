@@ -35,19 +35,19 @@ router.delete('/cmd_id/:cmd_id', /*auth(),*/ awaitHandlerFactory(ARC_CMDControll
 // http://localhost:3000/api/arc_db/arc_cmd_table/cmd_id/3  (delete)
 // sample data
     {
-        "cmd_an_id" : "cmd_an_id",
-        "r_usr_an_id" : "r_usr_an_id",
-        "c_usr_an_id" : "c_usr_an_id",
-        "r_usr_code_name" : "r_usr_code_name",
-        "cmd_exec_name" : "cmd_exec_name",
-        "cmd_exec_params" : "cmd_exec_params",
-        "cmd_exec_data" : "cmd_exec_data",
-        "cmd_status" : "cmd_status",
-        "cmd_op1" : "cmd_op1",
-        "cmd_op2" : "cmd_op2",
-        "cmd_op3" : "cmd_op3",
-        "cmd_date_created" : "cmd_date_created",
-        "cmd_date_executed" : "cmd_date_executed"
+        "cmd_an_id" : "ABC12352",
+        "r_usr_an_id" : "ASDF123",
+        "c_usr_an_id" : "QWERT123",
+        "r_usr_code_name" : "ARCANE",
+        "cmd_exec_name" : "WAIT_0",
+        "cmd_exec_params" : "{time_sec : '20'}",
+        "cmd_exec_data" : "0",
+        "cmd_status" : "UNEXECUTED",
+        "cmd_op1" : "0",
+        "cmd_op2" : "0",
+        "cmd_op3" : "0",
+        "cmd_date_created" : "2021-03-05 01:16:12",
+        "cmd_date_executed" : "2021-03-05 01:16:13"
     }
 
     cmd_an_id,r_usr_an_id,c_usr_an_id,r_usr_code_name,cmd_exec_name,cmd_exec_params,cmd_exec_data,cmd_status,cmd_op1,cmd_op2,cmd_op3,cmd_date_created,cmd_date_executed

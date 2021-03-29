@@ -10,7 +10,7 @@ dotenv.config();
  *                              User Controller
  ******************************************************************************/
  class ARC_R_Controller {
-    getAllCUsers = async (req, res, next) => {
+    getAllRUsers = async (req, res, next) => {
         let ARC_R_users = await ARC_R_UserModel.find();
         if (!ARC_R_users.length) {
             throw new HttpException(404, 'Users not found');
@@ -19,7 +19,7 @@ dotenv.config();
         res.send(ARC_R_users);
     };
 
-    getCUserById = async (req, res, next) => {
+    getRUserById = async (req, res, next) => {
         const r_usr_name = await ARC_R_UserModel.findOne({ r_usr_id: req.params.r_usr_id });
         if (!r_usr_name) {
             throw new HttpException(404, 'User not found');
@@ -30,7 +30,7 @@ dotenv.config();
         res.send(userNotFound);
     };
 
-    getCUserByANId = async (req, res, next) => {
+    getRUserByANId = async (req, res, next) => {
         const r_usr_name = await ARC_R_UserModel.findOne({ r_usr_an_id: req.params.r_usr_an_id });
         if (!r_usr_name) {
             throw new HttpException(404, 'User not found');

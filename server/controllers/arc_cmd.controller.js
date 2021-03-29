@@ -11,7 +11,7 @@ dotenv.config();
  ******************************************************************************/
 class ARC_CMDController {
     getAll_CMD_Users = async (req, res, next) => {
-        let ARC_CMD_users = await ARC_CMD_Model.find();
+        let ARC_CMD_users = await ARC_CMDModel.find();
         if (!ARC_CMD_users.length) {
             throw new HttpException(404, 'Users not found');
         }
@@ -20,7 +20,7 @@ class ARC_CMDController {
     };
 
     get_CMD_UserById = async (req, res, next) => {
-        const cmD_usr_name = await ARC_CMD_Model.findOne({ cmd_id: req.params.cmd_id });
+        const cmD_usr_name = await ARC_CMDModel.findOne({ cmd_id: req.params.cmd_id });
         if (!cmD_usr_name) {
             throw new HttpException(404, 'User not found');
         }
@@ -31,7 +31,7 @@ class ARC_CMDController {
     };
 
     get_CMD_UserByANId = async (req, res, next) => {
-        const cmD_usr_name = await ARC_CMD_Model.findOne({ cmd_lst_an_id: req.params.cmd_lst_an_id });
+        const cmD_usr_name = await ARC_CMDModel.findOne({ cmd_lst_an_id: req.params.cmd_lst_an_id });
         if (!cmD_usr_name) {
             throw new HttpException(404, 'User not found');
         }
@@ -43,7 +43,7 @@ class ARC_CMDController {
 
     create_CMD_User = async (req, res, next) => {
 
-        const result = await ARC_CMD_Model.create(req.body);
+        const result = await ARC_CMDModel.create(req.body);
 
         if (!result) {
             throw new HttpException(501, 'Something went wrong');
@@ -58,7 +58,7 @@ class ARC_CMDController {
 
         // do the update query and get the result
         // it can be partial edit
-        const result = await ARC_CMD_Model.update(restOfUpdates, req.params.cmd_id);
+        const result = await ARC_CMDModel.update(restOfUpdates, req.params.cmd_id);
 
         if (!result) {
             throw new HttpException(404, 'Something went wrong');
@@ -73,7 +73,7 @@ class ARC_CMDController {
     };
 
     delete_CMD_User = async (req, res, next) => {
-        const result = await ARC_CMD_Model.delete(req.params.cmd_id);
+        const result = await ARC_CMDModel.delete(req.params.cmd_id);
         if (!result) {
             throw new HttpException(404, 'User not found');
         }

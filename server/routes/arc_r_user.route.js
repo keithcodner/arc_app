@@ -7,31 +7,31 @@ const awaitHandlerFactory = require('../middleware/awaitHandlerFactory.middlewar
 
 const { createUserSchema, updateUserSchema, validateLogin } = require('../middleware/validators/arcValidator.middleware');
 
-//localhost:3000/api/arc_db/arc_c_users
-router.get('/', /*auth(),*/ awaitHandlerFactory(ARC_R_Controller.getAllCUsers)); 
+//localhost:3000/api/arc_db/arc_r_users
+router.get('/', /*auth(),*/ awaitHandlerFactory(ARC_R_Controller.getAllRUsers)); 
 
-//localhost:3000/api/arc_db/arc_c_users/r_usr_id/1
-router.get('/r_usr_id/:r_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_R_Controller.getCUserById)); 
+//localhost:3000/api/arc_db/arc_r_users/r_usr_id/1
+router.get('/r_usr_id/:r_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_R_Controller.getRUserById)); 
 
-//localhost:3000/api/arc_db/arc_c_users/r_usr_an_id/QWERT123
-router.get('/r_usr_an_id/:r_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_R_Controller.getCUserByANId)); 
+//localhost:3000/api/arc_db/arc_r_users/r_usr_an_id/QWERT123
+router.get('/r_usr_an_id/:r_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_R_Controller.getRUserByANId)); 
 
-//http://localhost:3000/api/arc_db/arc_c_users/c_usrs
+//http://localhost:3000/api/arc_db/arc_r_users/c_usrs
 router.post('/r_usrs/', /*auth(),*/ awaitHandlerFactory(ARC_R_Controller.createRUser)); 
 
-//localhost:3000/api/arc_db/arc_c_users/r_usr_id/3
+//localhost:3000/api/arc_db/arc_r_users/r_usr_id/3
 router.patch('/r_usr_id/:r_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_R_Controller.updateRUser)); 
 
-//localhost:3000/api/arc_db/arc_c_users/r_usr_id/3
+//localhost:3000/api/arc_db/arc_r_users/r_usr_id/3
 router.delete('/r_usr_id/:r_usr_id', /*auth(),*/ awaitHandlerFactory(ARC_R_Controller.deleteRUser)); 
 
 /*
-// http://localhost:3000/api/arc_db/arc_c_users (get all)
-// http://localhost:3000/api/arc_db/arc_c_users/r_usr_id/1  (get by table id)
-// http://localhost:3000/api/arc_db/arc_c_users/r_usr_an_id/QWERT123  (get by table an id)
-// http://localhost:3000/api/arc_db/arc_c_users/c_usrs (post)
-// http://localhost:3000/api/arc_db/arc_c_users/r_usr_id/3  (patch)
-// http://localhost:3000/api/arc_db/arc_c_users/r_usr_id/3  (delete)
+// http://localhost:3000/api/arc_db/arc_r_users (get all)
+// http://localhost:3000/api/arc_db/ai/arc_db/r_usr_an_id/ASDF123  (get by table an id)
+// http://localhost:3rc_r_users/r_usr_id/1  (get by table id)
+// http://localhost:3000/ap000/api/arc_db/arc_r_users/r_usrs (post)
+// http://localhost:3000/api/arc_db/arc_r_users/r_usr_id/3  (patch)
+// http://localhost:3000/api/arc_db/arc_r_users/r_usr_id/3  (delete)
 // sample data
     {
         "r_usr_id": 1,
