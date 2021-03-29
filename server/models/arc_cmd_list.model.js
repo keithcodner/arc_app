@@ -27,7 +27,7 @@ class ARC_CMD_LIST_Model {
 
         const result = await query(sql, [...values]);
 
-        // return back the first row (user)
+        // return back the first row (item)
         return result[0];
     }
 

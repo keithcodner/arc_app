@@ -10,38 +10,38 @@ dotenv.config();
  *                              User Controller
  ******************************************************************************/
 class ARC_CMD_LIST_Controller {
-    getAll_CMD_LIST_Users = async (req, res, next) => {
-        let ARC_CMD_LIST_users = await ARC_CMD_LIST_Model.find();
-        if (!ARC_CMD_LIST_users.length) {
-            throw new HttpException(404, 'Users not found');
+    getAll_CMD_LIST_Items = async (req, res, next) => {
+        let ARC_CMD_LIST_items = await ARC_CMD_LIST_Model.find();
+        if (!ARC_CMD_LIST_items.length) {
+            throw new HttpException(404, 'Item not found');
         }
 
-        res.send(ARC_CMD_LIST_users);
+        res.send(ARC_CMD_LIST_items);
     };
 
-    get_CMD_LIST_UserById = async (req, res, next) => {
-        const cmd_list_usr_name = await ARC_CMD_LIST_Model.findOne({ cmd_lst_id: req.params.cmd_lst_id });
-        if (!cmd_list_usr_name) {
-            throw new HttpException(404, 'User not found');
+    get_CMD_LIST_ItemById = async (req, res, next) => {
+        const ARC_CMD_LIST_items = await ARC_CMD_LIST_Model.findOne({ cmd_lst_id: req.params.cmd_lst_id });
+        if (!ARC_CMD_LIST_items) {
+            throw new HttpException(404, 'Item not found');
         }
 
-        const { r_usr_an_id, ...userNotFound } = cmd_list_usr_name;
+        const { cmd_lst_id, ...userNotFound } = ARC_CMD_LIST_items;
 
         res.send(userNotFound);
     };
 
-    get_CMD_LIST_UserByANId = async (req, res, next) => {
-        const cmd_list_usr_name = await ARC_CMD_LIST_Model.findOne({ cmd_lst_an_id: req.params.cmd_lst_an_id });
-        if (!cmd_list_usr_name) {
-            throw new HttpException(404, 'User not found');
+    get_CMD_LIST_ItemsByANId = async (req, res, next) => {
+        const ARC_CMD_LIST_items = await ARC_CMD_LIST_Model.findOne({ cmd_lst_an_id: req.params.cmd_lst_an_id });
+        if (!ARC_CMD_LIST_items) {
+            throw new HttpException(404, 'Item not found');
         }
 
-        const { r_usr_an_id, ...userNotFound } = cmd_list_usr_name;
+        const { r_usr_an_id, ...userNotFound } = ARC_CMD_LIST_items;
 
         res.send(userNotFound);
     };
 
-    create_CMD_LIST_User = async (req, res, next) => {
+    create_CMD_LIST_Items = async (req, res, next) => {
 
         const result = await ARC_CMD_LIST_Model.create(req.body);
 
@@ -49,10 +49,10 @@ class ARC_CMD_LIST_Controller {
             throw new HttpException(501, 'Something went wrong');
         }
 
-        res.status(201).send('User was created!');
+        res.status(201).send('Item was created!');
     };
 
-    update_CMD_LIST_User = async (req, res, next) => {
+    update_CMD_LIST_Items = async (req, res, next) => {
         
         const { confirm_password, ...restOfUpdates } = req.body;
 
@@ -66,25 +66,25 @@ class ARC_CMD_LIST_Controller {
 
         const { affectedRows, changedRows, info } = result;
 
-        const message = !affectedRows ? 'User not found' :
-            affectedRows && changedRows ? 'User updated successfully' : 'Updated faild';
+        const message = !affectedRows ? 'Item not found' :
+            affectedRows && changedRows ? 'Item updated successfully' : 'Updated faild';
 
         res.send({ message, info });
     };
 
-    delete_CMD_LIST_User = async (req, res, next) => {
+    delete_CMD_LIST_Items = async (req, res, next) => {
         const result = await ARC_CMD_LIST_Model.delete(req.params.cmd_lst_id);
         if (!result) {
-            throw new HttpException(404, 'User not found');
+            throw new HttpException(404, 'Item not found');
         }
-        res.send('User has been deleted');
+        res.send('Item has been deleted');
     };
 
 /*
     getUserByuserName = async (req, res, next) => {
         const user = await UserModel.findOne({ username: req.params.username });
         if (!user) {
-            throw new HttpException(404, 'User not found');
+            throw new HttpException(404, 'Item not found');
         }
 
         const { password, ...userWithoutPassword } = user;
