@@ -31,6 +31,7 @@ class ARC_R_Model {
         return result[0];
     }
 
+    
     create = async ({ r_usr_an_id,r_usr_code_name,r_usr_ip,r_usr_status,r_usr_type,r_usr_op1,r_usr_op2,r_usr_date_created}) => {
         const sql = `INSERT INTO ${this.tableName}
         (r_usr_an_id,r_usr_code_name,r_usr_ip,r_usr_status,r_usr_type,r_usr_op1,r_usr_op2,r_usr_date_created) VALUES (?,?,?,?,?,?,?,?)`;
@@ -38,7 +39,9 @@ class ARC_R_Model {
         const result = await query(sql, [r_usr_an_id,r_usr_code_name,r_usr_ip,r_usr_status,r_usr_type,r_usr_op1,r_usr_op2,r_usr_date_created]);
         const affectedRows = result ? result.affectedRows : 0;
 
+
         return affectedRows;
+        
     }
 
     update = async (params, r_usr_id) => {
