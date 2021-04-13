@@ -19,7 +19,7 @@ class ARC_Sys_Settings_Controller {
         res.send(ARC_Sys_Settings);
     };
 
-    get_Sys_Settings_UserById = async (req, res, next) => {
+    get_Sys_Settings_ById = async (req, res, next) => {
         const sys_setting_name = await ARC_Sys_Settings_Model.findOne({ set_id: req.params.set_id });
         if (!sys_setting_name) {
             throw new HttpException(404, 'System Settings not found');
@@ -31,7 +31,7 @@ class ARC_Sys_Settings_Controller {
     };
 
     get_Sys_Settings_ByANId = async (req, res, next) => {
-        const sys_setting_name = await ARC_Sys_Settings_Model.findOne({ cmd_lst_an_id: req.params.cmd_lst_an_id });
+        const sys_setting_name = await ARC_Sys_Settings_Model.findOne({ set_an_id: req.params.set_an_id });
         if (!sys_setting_name) {
             throw new HttpException(404, 'System Settings not found');
         }

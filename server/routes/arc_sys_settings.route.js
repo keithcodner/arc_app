@@ -12,7 +12,7 @@ const { createUserSchema, updateUserSchema, validateLogin } = require('../middle
 router.get('/', /*auth(),*/ awaitHandlerFactory(ARC_Sys_Settings_Controller.getAll_Sys_Settings)); 
 
 //localhost:3000/api/arc_db/arc_sys_settings/set_id/1
-router.get('/set_id/:set_id', /*auth(),*/ awaitHandlerFactory(ARC_Sys_Settings_Controller.get_Sys_Settings_UserById)); 
+router.get('/set_id/:set_id', /*auth(),*/ awaitHandlerFactory(ARC_Sys_Settings_Controller.get_Sys_Settings_ById)); 
 
 //localhost:3000/api/arc_db/arc_sys_settings/set_an_id/QWERT123
 router.get('/set_an_id/:set_an_id', /*auth(),*/ awaitHandlerFactory(ARC_Sys_Settings_Controller.get_Sys_Settings_ByANId)); 
