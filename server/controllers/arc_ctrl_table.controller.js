@@ -1,4 +1,4 @@
-const ARC_CTRL_Model = require('../models/arc_ctrl_table.models');
+const ARC_CTRL_Model = require('../models/arc_ctrl_table.model');
 const HttpException = require('../utils/HttpException.utils');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');

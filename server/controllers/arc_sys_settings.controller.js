@@ -1,4 +1,4 @@
-const ARC_Sys_Settings_Model = require('../models/arc_sys_settings.models');
+const ARC_Sys_Settings_Model = require('../models/arc_sys_settings.model');
 const HttpException = require('../utils/HttpException.utils');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');

@@ -6,8 +6,8 @@ const arc_c_users_apiRouter = require('./routes/arc_c_user.route');
 const arc_r_users_apiRouter = require('./routes/arc_r_user.route');
 const arc_cmd_apiRouter = require('./routes/arc_cmd.route');
 const arc_cmd_lst_apiRouter = require('./routes/arc_cmd_list.route');
-const arc_sys_settings_apiRouter = require('./routes/arc_sys_settings.routes');
-const arc_ctrl_table_apiRouter = require('./routes/arc_ctrl_table.routes');
+const arc_sys_settings_apiRouter = require('./routes/arc_sys_settings.route');
+const arc_ctrl_table_apiRouter = require('./routes/arc_ctrl_table.route');
 
 const dotenv = require('dotenv');
 const cors = require("cors");
@@ -33,14 +33,17 @@ app.options("*", cors());
 
 app.use(express.json());
 
+
+
 app.use('/api/arc_db/arc_c_users', arc_c_users_apiRouter);// for arc_c_users
 app.use('/api/arc_db/arc_r_users', arc_r_users_apiRouter);// for arc_r_users
 app.use('/api/arc_db/arc_cmd_table', arc_cmd_apiRouter);// for arc_cmd_table
 app.use('/api/arc_db/arc_cmd_list_table', arc_cmd_lst_apiRouter);// for arc_cmd_lst_table
-app.use('/api/arc_db/c_users', arc_c_users_apiRouter); // Default create
 
-app.use('/api/arc_sys_settings', arc_sys_settings_apiRouter); 
-app.use('/api/arc_ctrl_table', arc_ctrl_table_apiRouter); 
+app.use('/api/arc_db/arc_sys_settings', arc_sys_settings_apiRouter); 
+app.use('/api/arc_db/arc_ctrl_table', arc_ctrl_table_apiRouter); 
+
+app.use('/api/arc_db/c_users', arc_c_users_apiRouter); // Default create
 
 
 // 404 error
