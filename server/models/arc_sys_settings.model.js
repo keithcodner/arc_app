@@ -30,11 +30,11 @@ class ARC_Sys_Settings_Model {
         return result[0];
     }
 
-    create = async ({ ctrl_an_id,c_usr_an_id,ctrl_arrow_up,ctrl_arrow_down,ctrl_arrow_left,ctrl_arrow_right,ctrl_index_left,ctrl_index_right,ctrl_btn_y,ctrl_btn_x,ctrl_btn_b,ctrl_btn_a,ctrl_btn_start,ctrl_btn_select,ctrl_combo_1,ctrl_combo_2,ctrl_combo_3,ctrl_combo_4,ctrl_combo_5,ctrl_combo_6}) => {
+    create = async ({ set_an_id,set_name,set_val,set_op1,set_op2,set_op3,set_op4,set_op5,set_op_bulk1,set_op_bulk2}) => {
         const sql = `INSERT INTO ${this.tableName}
-        (ctrl_an_id,c_usr_an_id,ctrl_arrow_up,ctrl_arrow_down,ctrl_arrow_left,ctrl_arrow_right,ctrl_index_left,ctrl_index_right,ctrl_btn_y,ctrl_btn_x,ctrl_btn_b,ctrl_btn_a,ctrl_btn_start,ctrl_btn_select,ctrl_combo_1,ctrl_combo_2,ctrl_combo_3,ctrl_combo_4,ctrl_combo_5,ctrl_combo_6) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+        (set_an_id,set_name,set_val,set_op1,set_op2,set_op3,set_op4,set_op5,set_op_bulk1,set_op_bulk2) VALUES (?,?,?,?,?,?,?,?,?,?)`;
 
-        const result = await query(sql, [ctrl_an_id,c_usr_an_id,ctrl_arrow_up,ctrl_arrow_down,ctrl_arrow_left,ctrl_arrow_right,ctrl_index_left,ctrl_index_right,ctrl_btn_y,ctrl_btn_x,ctrl_btn_b,ctrl_btn_a,ctrl_btn_start,ctrl_btn_select,ctrl_combo_1,ctrl_combo_2,ctrl_combo_3,ctrl_combo_4,ctrl_combo_5,ctrl_combo_6]);
+        const result = await query(sql, [set_an_id,set_name,set_val,set_op1,set_op2,set_op3,set_op4,set_op5,set_op_bulk1,set_op_bulk2]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;

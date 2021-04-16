@@ -17,7 +17,7 @@ router.get('/set_id/:set_id', /*auth(),*/ awaitHandlerFactory(ARC_Sys_Settings_C
 //localhost:3000/api/arc_db/arc_sys_settings/set_an_id/QWERT123
 router.get('/set_an_id/:set_an_id', /*auth(),*/ awaitHandlerFactory(ARC_Sys_Settings_Controller.get_Sys_Settings_ByANId)); 
 
-//http://localhost:3000/api/arc_db/arc_sys_settings/
+//http://localhost:3000/api/arc_db/arc_sys_settings/mk_settings
 router.post('/mk_settings/', /*auth(),*/ awaitHandlerFactory(ARC_Sys_Settings_Controller.create_Sys_Settings)); 
 
 //localhost:3000/api/arc_db/arc_sys_settings/set_id/3
