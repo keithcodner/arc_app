@@ -15,9 +15,9 @@ router.get('/', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.getAll_CTRL_
 router.get('/ctrl_id/:ctrl_id', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.get_CTRL_ById)); 
 
 //localhost:3000/api/arc_db/arc_ctrl_table/cmd_usr_an_id/QWERT123
-router.get('/cmd_usr_an_id/:cmD_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.get_CMD_ByANId)); 
+router.get('/cmd_usr_an_id/:cmd_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.get_CMD_ByANId)); 
 
-//http://localhost:3000/api/arc_db/arc_ctrl_table/
+//http://localhost:3000/api/arc_db/arc_ctrl_table/mk_ctrl
 router.post('/mk_ctrl/', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.create_CMD_Data)); 
 
 //localhost:3000/api/arc_db/arc_ctrl_table/ctrl_id/3
