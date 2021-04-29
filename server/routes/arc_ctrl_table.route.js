@@ -14,23 +14,23 @@ router.get('/', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.getAll_CTRL_
 //localhost:3000/api/arc_db/arc_ctrl_table/ctrl_id/1
 router.get('/ctrl_id/:ctrl_id', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.get_CTRL_ById)); 
 
-//localhost:3000/api/arc_db/arc_ctrl_table/cmd_usr_an_id/QWERT123
-router.get('/cmd_usr_an_id/:cmd_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.get_CMD_ByANId)); 
+//localhost:3000/api/arc_db/arc_ctrl_table/ctrl_usr_an_id/QWERT123
+router.get('/ctrl_usr_an_id/:ctrl_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.get_CTRL_ByANId)); 
 
 //http://localhost:3000/api/arc_db/arc_ctrl_table/mk_ctrl
-router.post('/mk_ctrl/', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.create_CMD_Data)); 
+router.post('/mk_ctrl/', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.create_CTRL_Data)); 
 
 //localhost:3000/api/arc_db/arc_ctrl_table/ctrl_id/3
-router.patch('/ctrl_id/:ctrl_id', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.update_CMD_Data)); 
+router.patch('/ctrl_id/:ctrl_id', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.update_CTRL_Data)); 
 
 //localhost:3000/api/arc_db/arc_ctrl_table/ctrl_id/3
-router.delete('/ctrl_id/:ctrl_id', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.delete_CMD_Data)); 
+router.delete('/ctrl_id/:ctrl_id', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Controller.delete_CTRL_Data)); 
 
 /*
 // http://localhost:3000/api/arc_db/arc_ctrl_table (get all)
 // http://localhost:3000/api/arc_db/arc_ctrl_table/ctrl_id/1  (get by table id)
-// http://localhost:3000/api/arc_db/arc_ctrl_table/cmd_usr_an_id/QWERT123  (get by table an id)
-// http://localhost:3000/api/arc_db/arc_ctrl_table/mkcmd (post)
+// http://localhost:3000/api/arc_db/arc_ctrl_table/ctrl_usr_an_id/QWERT123  (get by table an id)
+// http://localhost:3000/api/arc_db/arc_ctrl_table/mkctrl (post)
 // http://localhost:3000/api/arc_db/arc_ctrl_table/ctrl_id/3  (patch)
 // http://localhost:3000/api/arc_db/arc_ctrl_table/ctrl_id/3  (delete)
 // sample data
@@ -57,7 +57,7 @@ router.delete('/ctrl_id/:ctrl_id', /*auth(),*/ awaitHandlerFactory(ARC_CTRL_Cont
     "ctrl_combo_6" : "ctrl_combo_6"
 }
 
-    cmd_an_id,r_usr_an_id,c_usr_an_id,r_usr_code_name,cmd_exec_name,cmd_exec_params,cmd_exec_data,cmd_status,cmd_op1,cmd_op2,cmd_op3,cmd_date_created,cmd_date_executed
+    ctrl_an_id,r_usr_an_id,c_usr_an_id,r_usr_code_name,ctrl_exec_name,ctrl_exec_params,ctrl_exec_data,ctrl_status,ctrl_op1,ctrl_op2,ctrl_op3,ctrl_date_created,ctrl_date_executed
 */
 
 

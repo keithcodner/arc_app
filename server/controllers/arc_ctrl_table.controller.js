@@ -30,7 +30,7 @@ class ARC_CTRL_Controller {
         res.send(userNotFound);
     };
 
-    get_CMD_ByANId = async (req, res, next) => {
+    get_CTRL_ByANId = async (req, res, next) => {
         const ctrl_name = await ARC_CTRL_Model.findOne({ ctrl_an_id: req.params.ctrl_an_id });
         if (!ctrl_name) {
             throw new HttpException(404, 'Ctrl data not found');
@@ -41,7 +41,7 @@ class ARC_CTRL_Controller {
         res.send(userNotFound);
     };
 
-    create_CMD_Data = async (req, res, next) => {
+    create_CTRL_Data = async (req, res, next) => {
 
         const result = await ARC_CTRL_Model.create(req.body);
 
@@ -52,7 +52,7 @@ class ARC_CTRL_Controller {
         res.status(201).send('Ctrl data was created!');
     };
 
-    update_CMD_Data = async (req, res, next) => {
+    update_CTRL_Data = async (req, res, next) => {
         
         const { confirm_password, ...restOfUpdates } = req.body;
 
@@ -72,7 +72,7 @@ class ARC_CTRL_Controller {
         res.send({ message, info });
     };
 
-    delete_CMD_Data = async (req, res, next) => {
+    delete_CTRL_Data = async (req, res, next) => {
         const result = await ARC_CTRL_Model.delete(req.params.ctrl_id);
         if (!result) {
             throw new HttpException(404, 'Ctrl data not found');
