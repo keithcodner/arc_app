@@ -1,0 +1,33 @@
+{
+  "name": "arc_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "npx nodemon server/server.js -w server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keithcodner/arc_app.git"
+  },
+  "keywords": [],
+  "author": "Keith Codner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keithcodner/arc_app/issues"
+  },
+  "homepage": "https://github.com/keithcodner/arc_app#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.10.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
