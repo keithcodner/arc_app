@@ -24,7 +24,7 @@ router.get('/cmd_usr_an_id/:cmD_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_
 router.post('/mkcmd/', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.create_CMD_User)); 
 
 //localhost:3000/api/arc_db/arc_cmd_table/cmd_id/3
-router.patch('/cmd_id/:cmd_id', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.update_CMD_User)); 
+router.put('/cmd_id/:cmd_id', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.update_CMD_User)); 
 
 //localhost:3000/api/arc_db/arc_cmd_table/cmd_id/3
 router.delete('/cmd_id/:cmd_id', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.delete_CMD_User)); 
