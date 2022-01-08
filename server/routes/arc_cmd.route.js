@@ -11,6 +11,9 @@ const { createUserSchema, updateUserSchema, validateLogin } = require('../middle
 //localhost:3000/api/arc_db/arc_cmd_table
 router.get('/', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.getAll_CMD_Users)); 
 
+//localhost:3000/api/arc_db/arc_cmd_table - Unexecuted
+router.get('/cmd_status/:cmd_status/r_usr_an_id/:r_usr_an_id', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.getAllUnexecutedCMDs)); 
+
 //localhost:3000/api/arc_db/arc_cmd_table/cmd_id/1
 router.get('/cmd_id/:cmd_id', /*auth(),*/ awaitHandlerFactory(ARC_CMDController.get_CMD_UserById)); 
 

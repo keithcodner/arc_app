@@ -6,16 +6,23 @@ class ARC_CMDModel {
     tableName = 'arc_cmd_table';
 
     find = async (params = {}) => {
+        const { columnSet, values } = multipleColumnSet(params)
         let sql = `SELECT * FROM ${this.tableName}`;
 
         if (!Object.keys(params).length) {
             return await query(sql);
         }
 
-        const { columnSet, values } = multipleColumnSet(params)
-        sql += ` WHERE ${columnSet}`;
-
-        return await query(sql, [...values]);
+        
+        let res = columnSet.replace(",", " AND ");
+        sql += ` WHERE ${res}`;
+        
+        const result = await query(sql, [...values]);
+        
+        console.log(sql)
+        console.log(...values)
+        
+        return result;    
     }
 
     

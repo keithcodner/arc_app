@@ -18,6 +18,15 @@ class ARC_CMDController {
 
         res.send(ARC_CMD_users);
     };
+    
+    getAllUnexecutedCMDs = async (req, res, next) => {
+        let ARC_CMD_users = await ARC_CMDModel.find({ cmd_status: req.params.cmd_status, r_usr_an_id : req.params.r_usr_an_id});
+        if (!ARC_CMD_users.length) {
+            throw new HttpException(404, 'Command not found');
+        }
+
+        res.send(ARC_CMD_users);
+    };
 
     get_CMD_UserById = async (req, res, next) => {
         const cmD_usr_name = await ARC_CMDModel.findOne({ cmd_id: req.params.cmd_id });
