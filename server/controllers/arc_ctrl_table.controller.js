@@ -25,9 +25,9 @@ class ARC_CTRL_Controller {
             throw new HttpException(404, 'Ctrl data not found');
         }
 
-        const { ctrl_an_id, ...userNotFound } = ctrl_name;
+        //const { ctrl_an_id, ...userNotFound } = ctrl_name;
 
-        res.send(userNotFound);
+        res.send(ctrl_name);
     };
 
     get_CTRL_ByANId = async (req, res, next) => {
@@ -37,6 +37,17 @@ class ARC_CTRL_Controller {
         }
 
         const { ctrl_an_id, ...userNotFound } = ctrl_name;
+
+        res.send(userNotFound);
+    };
+    
+    get_CTRL_By_C_User = async (req, res, next) => {
+        const ctrl_name = await ARC_CTRL_Model.findOne({ c_usr_an_id: req.params.c_usr_an_id });
+        if (!ctrl_name) {
+            throw new HttpException(404, 'Ctrl data not found');
+        }
+
+        const { c_usr_an_id, ...userNotFound } = ctrl_name;
 
         res.send(userNotFound);
     };

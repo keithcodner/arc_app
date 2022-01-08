@@ -37,8 +37,8 @@ dotenv.config();
         }
 
         const { r_usr_an_id, ...userNotFound } = c_usr_name;
-
-        res.send(userNotFound);
+        console.log(c_usr_name)
+        res.send(c_usr_name);
     };
 
     createCUser = async (req, res, next) => {

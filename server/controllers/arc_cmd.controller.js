@@ -13,7 +13,7 @@ class ARC_CMDController {
     getAll_CMD_Users = async (req, res, next) => {
         let ARC_CMD_users = await ARC_CMDModel.find();
         if (!ARC_CMD_users.length) {
-            throw new HttpException(404, 'Users not found');
+            throw new HttpException(404, 'Commands not found');
         }
 
         res.send(ARC_CMD_users);
@@ -22,7 +22,7 @@ class ARC_CMDController {
     get_CMD_UserById = async (req, res, next) => {
         const cmD_usr_name = await ARC_CMDModel.findOne({ cmd_id: req.params.cmd_id });
         if (!cmD_usr_name) {
-            throw new HttpException(404, 'User not found');
+            throw new HttpException(404, 'Commands not found');
         }
 
         const { r_usr_an_id, ...userNotFound } = cmD_usr_name;
@@ -49,7 +49,7 @@ class ARC_CMDController {
             throw new HttpException(501, 'Something went wrong');
         }
 
-        res.status(201).send('User was created!');
+        res.status(201).send('Command was created!');
     };
 
     update_CMD_User = async (req, res, next) => {

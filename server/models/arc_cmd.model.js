@@ -36,7 +36,7 @@ class ARC_CMDModel {
         (cmd_an_id,r_usr_an_id,c_usr_an_id,r_usr_code_name,cmd_exec_name,cmd_exec_params,cmd_exec_data,cmd_status,cmd_op1,cmd_op2,cmd_op3,cmd_date_created,cmd_date_executed) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 
         const result = await query(sql, [cmd_an_id,r_usr_an_id,c_usr_an_id,r_usr_code_name,cmd_exec_name,cmd_exec_params,cmd_exec_data,cmd_status,cmd_op1,cmd_op2,cmd_op3,cmd_date_created,cmd_date_executed]);
-        const affectedRows = result ? result.affectedRows : 0;
+        const affectedRows = result ? result.affectedRows : '0';
 
         return affectedRows;
     }

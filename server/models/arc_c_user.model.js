@@ -26,7 +26,9 @@ class ARC_C_Model {
         WHERE ${columnSet}`;
 
         const result = await query(sql, [...values]);
-
+        
+        console.log(params)
+        
         // return back the first row (user)
         return result[0];
     }

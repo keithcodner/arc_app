@@ -31,6 +31,13 @@ app.use(cors());
 // Enable pre-flight
 app.options("*", cors());
 
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
+
 app.use(express.json());
 
 

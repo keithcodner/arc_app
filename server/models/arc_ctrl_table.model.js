@@ -26,6 +26,8 @@ class ARC_CTRL_Model {
         WHERE ${columnSet}`;
 
         const result = await query(sql, [...values]);
+        
+        console.log(result[0]);
 
         // return back the first row (user)
         return result[0];

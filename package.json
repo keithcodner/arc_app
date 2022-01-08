@@ -1,6 +1,7 @@
 {
   "name": "arc_app",
   "version": "1.0.0",
+  "proxy":"http://arc.lonaris.ca/",
   "description": "",
   "main": "server.js",
   "scripts": {

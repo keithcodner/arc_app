@@ -1,4 +1,4 @@
-const ARC_R_UserModel = require('../models/ARC_R_user.model');
+const ARC_R_UserModel = require('../models/arc_r_user.model');
 const HttpException = require('../utils/HttpException.utils');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
